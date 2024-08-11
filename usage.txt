@@ -1,0 +1,11 @@
+// app.js
+const { PDFDocument, PDFPage } = require('./pdf-library');
+
+const doc = new PDFDocument();
+const page = doc.addPage();
+page.addText("This is from my library!", 100, 700);
+const pdfContent = doc.render();
+
+const fs = require('fs');
+fs.writeFileSync('output.pdf', pdfContent);
+console.log('PDF generated using the library.');
